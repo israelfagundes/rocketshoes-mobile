@@ -35,4 +35,5 @@ export const Badge = styled.View`
 export const Amount = styled.Text`
   color: #fff;
   font-size: 12px;
+  font-weight: bold;
 `;
