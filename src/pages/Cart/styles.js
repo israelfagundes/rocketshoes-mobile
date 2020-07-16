@@ -1,3 +1,4 @@
+import { Dimensions } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -6,13 +7,20 @@ export const Container = styled.View`
   padding: 20px;
 `;
 
+const windowHeight = Dimensions.get('window').height;
+const intParsedHeight = parseInt(windowHeight, 10);
+const cartWrapperHeight = intParsedHeight - intParsedHeight * 0.08;
+
 export const CartWrapper = styled.View`
   background: #fff;
   padding: 0 10px 10px;
   border-radius: 4px;
+  max-height: ${`${parseInt(cartWrapperHeight, 10)}px`};
 `;
 
-export const ItemWrapper = styled.View`
+export const ItemsWrapper = styled.ScrollView``;
+
+export const Item = styled.View`
   margin-top: 15px;
 `;
 
