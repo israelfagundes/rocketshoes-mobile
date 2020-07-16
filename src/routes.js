@@ -8,11 +8,13 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 
+import { navigationRef } from './services/rootNavigation';
+
 const Stack = createStackNavigator();
 
 export default function Routes() {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <Stack.Navigator
         screenOptions={{
           headerMode: 'screen',

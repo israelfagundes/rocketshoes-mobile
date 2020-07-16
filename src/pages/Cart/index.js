@@ -33,16 +33,13 @@ import {
   NoItemsDisplayMessage,
 } from './styles';
 
-const Cart = ({ cart, updateAmount, removeFromCart, total }) => {
+const Cart = ({ cart, updateAmountRequest, total }) => {
   function increment(product) {
-    updateAmount(product.id, product.amount + 1);
+    updateAmountRequest(product.id, product.amount + 1);
   }
 
   function decrement(product) {
-    updateAmount(product.id, product.amount - 1);
-    if (product.amount === 1) {
-      removeFromCart(product.id);
-    }
+    updateAmountRequest(product.id, product.amount - 1);
   }
 
   return (
