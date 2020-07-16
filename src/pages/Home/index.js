@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Feather';
 
 import api from '../../services/api';
@@ -27,6 +28,15 @@ class Home extends Component {
     this.setState({ products: response.data });
   }
 
+  handleAddProduct(product) {
+    const { dispatch } = this.props;
+
+    dispatch({
+      type: 'ADD_TO_CART',
+      product,
+    });
+  }
+
   render() {
     const { products } = this.state;
 
@@ -34,7 +44,7 @@ class Home extends Component {
       <Container>
         <ItemList
           data={products}
-          keyExtractor={(product) => product.id}
+          keyExtractor={(product) => String(product.id)}
           renderItem={({ item }) => (
             <ItemWrapper>
               <ItemImage source={{ uri: item.image }} />
@@ -45,7 +55,9 @@ class Home extends Component {
                   <Icon name="shopping-bag" color="#fff" size={18} />
                   <Amount>3</Amount>
                 </IconWrapper>
-                <ItemAddButtonText>Adicionar</ItemAddButtonText>
+                <ItemAddButtonText onPress={() => this.handleAddProduct(item)}>
+                  Adicionar
+                </ItemAddButtonText>
               </ItemAddButton>
             </ItemWrapper>
           )}
@@ -55,4 +67,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default connect()(Home);

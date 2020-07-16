@@ -16,6 +16,8 @@ export const Logo = styled.Image`
 export const Cart = styled.TouchableOpacity`
   align-items: center;
   flex-direction: row;
+  position: relative;
+  right: 10px;
 `;
 
 export const Badge = styled.View`
@@ -25,9 +27,9 @@ export const Badge = styled.View`
   background-color: #7159c1;
   align-items: center;
   justify-content: center;
-  position: relative;
-  top: -10px;
-  right: 5px;
+  position: absolute;
+  top: -8px;
+  right: -8px;
 `;
 
 export const Amount = styled.Text`
