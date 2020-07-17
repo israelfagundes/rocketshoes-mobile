@@ -1,12 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/Feather';
 
 import logo from '../../assets/logo.png';
 
 import { Container, Logo, Cart, Badge, Amount } from './styles';
 
-const Header = ({ navigation, cartSize }) => {
+export default function Header({ navigation }) {
+  const cartSize = useSelector((state) => state.cart.length);
+
   return (
     <Container>
       <Logo source={logo} />
@@ -20,10 +22,4 @@ const Header = ({ navigation, cartSize }) => {
       </Cart>
     </Container>
   );
-};
-
-const mapStateToProps = (state) => ({
-  cartSize: state.cart.length,
-});
-
-export default connect(mapStateToProps)(Header);
+}
