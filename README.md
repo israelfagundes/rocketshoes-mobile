@@ -6,7 +6,7 @@
   NetShoes clone com React Native and Redux.
 </h4>
 
- ## :iphone: Demo:
+## :iphone: Demo:
 
 <div align="center">
   <img src="./.github/demo.gif" />
@@ -17,6 +17,7 @@
 ---
 
 <br/>
+
 ## :rocket: Tecnologias
 
 -  React Native
